@@ -1,9 +1,15 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
+</script>
+
 <template>
   <div>
     <h1>To be added</h1>
     <ul>
+
       <li>Age of Empires: Definitive Edition</li>
-      <li>Age of Empires II: Definitive Edition</li>
+      <li><RouterLink to="/games/aoe2de">Age of Empires II: Definitive Edition</RouterLink></li>
       <li>Age of Empires III: Definitive Edition</li>
       <li>Age of Empires IV</li>
       <li>Age of Mythology: Retold</li>

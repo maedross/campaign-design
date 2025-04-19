@@ -1,13 +1,10 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
   <header>
+    <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
     <div>
       <nav>
         <RouterLink to="/">Model</RouterLink>
-        <RouterLink to="/games-list">Games list</RouterLink>
+        <RouterLink to="/games">Games list</RouterLink>
       </nav>
     </div>
   </header>
@@ -15,8 +12,10 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style scoped>
+<script setup lang="ts">
+</script>
 
+<style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
