@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/campaign-design/',
+  base: 'https://maedross.github.io/campaign-design/',
   plugins: [
     vue(),
     vueDevTools(),
