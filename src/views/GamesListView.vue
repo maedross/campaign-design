@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div>
+  <main>
     <h1>To be added</h1>
     <ul>
 
@@ -28,14 +28,9 @@ import { RouterLink } from 'vue-router'
       <li>Total Annihilation</li>
       <li>Warhammer 40,000: Dawn of War</li>
     </ul>
-  </div>
+  </main>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    align-items: left;
-  }
-}
+
 </style>

@@ -1,12 +1,13 @@
 import { createMemoryHistory, createRouter } from 'vue-router'
 
-import GamesList from './views/GamesListView.vue'
+import GamesListView from './views/GamesListView.vue'
 import ModelView from './views/ModelView.vue'
 import GameView from './views/GameView.vue'
 
 const routes = [
-  { path: '/', component: GamesList },
-  { path: '/about', component: ModelView },
+  { path: '/', component: ModelView },
+  { path: '/model', component: ModelView },
+  { path: '/games', component: GamesListView },
   { path: '/games/:gameId', component: GameView },
 ]
 

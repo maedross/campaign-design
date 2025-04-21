@@ -3,17 +3,17 @@
     <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
     <div>
       <nav>
-        <RouterLink to="/">Model</RouterLink>
+        <RouterLink to="/model">Model</RouterLink>
         <RouterLink to="/games">Games list</RouterLink>
       </nav>
     </div>
   </header>
-
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 header {
