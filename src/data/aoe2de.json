@@ -9,7 +9,7 @@
             "objectives": [
               {
                 "text": "Joan must survive.",
-                "identity": "",
+                "identity": "Protect unit",
                 "priority": "Primary",
                 "effects": [
                   "Defeat"
@@ -42,7 +42,7 @@
             "objectives": [
               {
                 "text": "Joan must survive.",
-                "identity": "",
+                "identity": "Protect unit",
                 "priority": "Primary",
                 "effects": [
                   "Defeat"
@@ -56,7 +56,7 @@
               },
               {
                 "text": "The Cathedral in Orléans must remain standing.",
-                "identity": "",
+                "identity": "Protect building",
                 "priority": "Primary",
                 "effects": [
                   "Defeat"

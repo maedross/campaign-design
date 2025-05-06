@@ -8,33 +8,50 @@
         <ol>
           <li v-for="(scenario, sInd) in campaign.scenarios" :key="sInd">
             {{ scenario.name }}
-            <ol>
-              <li v-for="(objective, oInd) in scenario.objectives" :key="oInd">
-                <ul>
-                  <li>Text: {{ objective.text }}</li>
-                  <li>Identity: {{ objective.identity }}</li>
-                  <li>Priority: {{ objective.priority }}</li>
-                  <li>
-                    Effects:
+            <table v-for="(objective, oInd) in scenario.objectives" :key="oInd">
+              <tbody>
+                <tr>
+                  <td>Text</td>
+                  <td>{{ objective.text }}</td>
+                </tr>
+                <tr>
+                  <td>Identity</td>
+                  <td>{{ objective.identity }}</td>
+                </tr>
+                <tr>
+                  <td>Effects</td>
+                  <td>
                     <ul>
                       <li v-for="(effect, eInd) in objective.effects" :key="eInd">{{ effect }}</li>
                     </ul>
-                  </li>
-                  <li>Time: {{ objective.time }}</li>
-                  <li>
-                    Conditions:
+                  </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                  <td>Time</td>
+                  <td>{{ objective.time }}</td>
+                </tr>
+                <tr>
+                  <td>Conditions</td>
+                  <td>
                     <ul>
                       <li v-for="(condition, condInd) in objective.conditions" :key="condInd">
                         {{ condition }}
                       </li>
                     </ul>
-                  </li>
-                  <li v-if="objective.possible == true">Possibile: Yes</li>
-                  <li v-else>Possible: No</li>
-                  <li v-if="objective.notes">Additional notes: {{ objective.notes }}</li>
-                </ul>
-              </li>
-            </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Possible</td>
+                  <td v-if="objective.possible == true">Yes</td>
+                  <td v-else>No</td>
+                </tr>
+                <tr v-if="objective.notes">
+                  <td>Additional Notes</td>
+                  <td>{{ objective.notes }}</td>
+                </tr>
+              </tbody>
+            </table>
           </li>
         </ol>
       </li>
@@ -82,4 +99,56 @@ onMounted(async () => {
 })
 </script>
 
-<style></style>
+<style>
+
+
+table {
+  border-collapse: collapse;
+  width: 100%
+  
+}
+
+table tr:nth-child(1) {
+  background-color: #FFCCCC;
+}
+
+table tr:nth-child(2) {
+  background-color: #CCFFCC;
+}
+
+table tr:nth-child(3) {
+  background-color: #CCE5FF;
+}
+
+table tr:nth-child(4) {
+  background-color: #FFFFCC;
+}
+
+table tr:nth-child(5) {
+  background-color: #E6CCFF;
+}
+
+table tr:nth-child(6) {
+  background-color: #FFDAB9;
+}
+
+table tr:nth-child(7) {
+  background-color: #CCFFFF;
+}
+
+table tr:nth-child(8) {
+  background-color: #F2F2F2;
+}
+
+tr td:nth-child(1) {
+  width: 20%
+}
+
+tr td:nth-child(2) {
+  width: 80%
+}
+
+td {
+  border: 1px solid black;
+}
+</style>
