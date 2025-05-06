@@ -1,6 +1,5 @@
 <template>
   <header>
-    <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
     <div>
       <nav>
         <RouterLink to="/model">Model</RouterLink>
@@ -75,6 +74,12 @@ nav a:first-of-type {
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
   }
 }
 </style>
