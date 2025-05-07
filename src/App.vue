@@ -1,15 +1,13 @@
 <template>
   <header>
-    <div>
       <nav>
         <RouterLink to="/model">Model</RouterLink>
         <RouterLink to="/games">Games list</RouterLink>
       </nav>
-    </div>
   </header>
-  <main>
+  <body>
     <RouterView />
-  </main>
+  </body>
 </template>
 
 <script setup lang="ts"></script>
