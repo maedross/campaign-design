@@ -7,54 +7,62 @@
         <li v-for="(campaign, index) in gameData.campaigns" :key="index">
           {{ campaign.name }}
           <ol>
-            <li v-for="(scenario, sInd) in campaign.scenarios" :key="sInd">
+            <li v-for="(scenario, sInd) in campaign.scenarios" :key="sInd" class="row-container">
+              <div>
+                <button @click="toggleScenario(index + '-' + sInd)">
+                  {{ isScenarioExpanded(index + '-' + sInd) ? '-' : '+' }}
+                </button>
+              </div>
               {{ scenario.name }}
-              <table v-for="(objective, oInd) in scenario.objectives" :key="oInd">
-                <tbody>
-                  <tr>
-                    <td>Text</td>
-                    <td>{{ objective.text }}</td>
-                  </tr>
-                  <tr>
-                    <td>Identity</td>
-                    <td>{{ objective.identity }}</td>
-                  </tr>
-                  <tr>
-                    <td>Effects</td>
-                    <td>
-                      <ul>
-                        <li v-for="(effect, eInd) in objective.effects" :key="eInd">
-                          {{ effect }}
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr></tr>
-                  <tr>
-                    <td>Time</td>
-                    <td>{{ objective.time }}</td>
-                  </tr>
-                  <tr>
-                    <td>Conditions</td>
-                    <td>
-                      <ul>
-                        <li v-for="(condition, condInd) in objective.conditions" :key="condInd">
-                          {{ condition }}
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Possible</td>
-                    <td v-if="objective.possible == true">Yes</td>
-                    <td v-else>No</td>
-                  </tr>
-                  <tr v-if="objective.notes">
-                    <td>Additional Notes</td>
-                    <td>{{ objective.notes }}</td>
-                  </tr>
-                </tbody>
-              </table>
+
+              <div v-if="isScenarioExpanded(index + '-' + sInd)">
+                <table v-for="(objective, oInd) in scenario.objectives" :key="oInd">
+                  <tbody>
+                    <tr>
+                      <td>Text</td>
+                      <td>{{ objective.text }}</td>
+                    </tr>
+                    <tr>
+                      <td>Identity</td>
+                      <td>{{ objective.identity }}</td>
+                    </tr>
+                    <tr>
+                      <td>Effects</td>
+                      <td>
+                        <ul>
+                          <li v-for="(effect, eInd) in objective.effects" :key="eInd">
+                            {{ effect }}
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                      <td>Time</td>
+                      <td>{{ objective.time }}</td>
+                    </tr>
+                    <tr>
+                      <td>Conditions</td>
+                      <td>
+                        <ul>
+                          <li v-for="(condition, condInd) in objective.conditions" :key="condInd">
+                            {{ condition }}
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Possible</td>
+                      <td v-if="objective.possible == true">Yes</td>
+                      <td v-else>No</td>
+                    </tr>
+                    <tr v-if="objective.notes">
+                      <td>Additional Notes</td>
+                      <td>{{ objective.notes }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </li>
           </ol>
         </li>
@@ -65,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, reactive } from 'vue'
 import { useRoute } from 'vue-router'
 
 interface GameData {
@@ -92,10 +100,27 @@ const route = useRoute()
 const gameId = route.params.gameId as string
 const gameData = ref<GameData | null>(null)
 
+const expandedScenarios = reactive<Record<string, boolean>>({})
+
+const toggleScenario = (key: string) => {
+  expandedScenarios[key] = !expandedScenarios[key]
+}
+
+const isScenarioExpanded = (key: string) => {
+  return expandedScenarios[key]
+}
+
 onMounted(async () => {
   try {
     const data = await import(`../data/${gameId}.json`)
     gameData.value = data
+
+    gameData.value?.campaigns.forEach((campaign, campaignIndex) => {
+      campaign.scenarios.forEach((_, scenarioIndex) => {
+        const key = `${campaignIndex}-${scenarioIndex}`
+        expandedScenarios[key] = true
+      })
+    })
   } catch (error) {
     console.error(`Failed to load game data for ID: ${gameId}`, error)
     gameData.value = null
@@ -151,5 +176,9 @@ tr td:nth-child(2) {
 
 td {
   border: 1px solid black;
+}
+.row-container {
+  display: flex;
+  align-items: flex-start;
 }
 </style>
