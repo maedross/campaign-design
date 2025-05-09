@@ -1,6 +1,5 @@
 <template>
   <main>
-    <h1>Game ID is {{ gameId }}</h1>
     <div v-if="gameData">
       <h1>{{ gameData.name }}</h1>
       <ol>
