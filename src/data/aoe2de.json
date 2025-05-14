@@ -1,131 +1,108 @@
 {
-    "name": "Age of Empires 2: Definitive Edition",
-    "campaigns": [
-      {
-        "name": "Joan of Arc",
-        "scenarios": [
-          {
-            "name": "An Unlikely Messiah",
-            "objectives": [
-              {
-                "text": "Joan must survive.",
-                "identity": "Protect unit",
-                "priority": "Primary",
-                "effects": [
-                  "Defeat"
-                ],
-                "time": "Untimed",
-                "conditions": [
-                  "None"
-                ],
-                "possible": true,
-                "notes": ""
-              },
-              {
-                "text": "Escort Joan from the camp at Vaucouleurs to the Château of Chinon.",
-                "identity": "Move unit",
-                "priority": "Primary",
-                "effects": [
-                  "Victory"
-                ],
-                "time": "Untimed",
-                "conditions": [
-                  "None"
-                ],
-                "possible": true,
-                "notes": ""
-              }
-            ]
-          },
-          {
-            "name": "The Maid of Orleans",
-            "objectives": [
-              {
-                "text": "Joan must survive.",
-                "identity": "Protect unit",
-                "priority": "Primary",
-                "effects": [
-                  "Defeat"
-                ],
-                "time": "Untimed",
-                "conditions": [
-                  "None"
-                ],
-                "possible": true,
-                "notes": ""
-              },
-              {
-                "text": "The Cathedral in Orléans must remain standing.",
-                "identity": "Protect building",
-                "priority": "Primary",
-                "effects": [
-                  "Defeat"
-                ],
-                "time": "Untimed",
-                "conditions": [
-                  "None"
-                ],
-                "possible": true,
-                "notes": ""
-              },
-              {
-                "text": "Escort Joan to Blois so that she may command the French army.",
-                "identity": "Move unit",
-                "priority": "Primary",
-                "effects": [
-                  "Unlock objective"
-                ],
-                "time": "",
-                "conditions": [],
-                "possible": "",
-                "notes": ""
-              },
-              {
-                "text": "Bring Joan to the Orléans Town Center.",
-                "identity": "Move unit",
-                "priority": "Primary",
-                "effects": [
-                  "Unlock objective"
-                ],
-                "time": "Untimed",
-                "conditions": [
-                  "Prerequisites"
-                ],
-                "possible": true,
-                "notes": ""
-              },
-              {
-                "text": "Deliver 6 Trade Carts of supplies to the Orléans Town Center.",
-                "identity": "Move unit",
-                "priority": "Primary",
-                "effects": [
-                  "Defeat",
-                  "Unlock objective"
-                ],
-                "time": "Untimed",
-                "conditions": [
-                  "Prerequisites"
-                ],
-                "possible": true,
-                "notes": ""
-              },
-              {
-                "text": "Convince the British/English to withdraw by destroying 1 of their Castles.",
-                "identity": "Destroy building",
-                "priority": "Primary",
-                "effects": [
-                  "Victory"
-                ],
-                "time": "Untimed",
-                "conditions": [
-                  "Prerequisites"
-                ],
-                "possible": true,
-                "notes": ""
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "name": "Age of Empires 2: Definitive Edition",
+  "campaigns": [
+    {
+      "name": "Joan of Arc",
+      "scenarios": [
+        {
+          "name": "An Unlikely Messiah",
+          "objectives": [
+            {
+              "text": "Joan must survive.",
+              "identity": "Protect unit",
+              "priority": "Primary",
+              "successEffects": ["None"],
+              "failureEffects": ["Defeat"],
+              "time": "Untimed",
+              "conditions": ["None"],
+              "possible": true,
+              "notes": ""
+            },
+            {
+              "text": "Escort Joan from the camp at Vaucouleurs to the Château of Chinon.",
+              "identity": "Move unit",
+              "priority": "Primary",
+              "successEffects": ["Victory"],
+              "failureEffects": ["None"],
+              "time": "Untimed",
+              "conditions": ["None"],
+              "possible": true,
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "name": "The Maid of Orleans",
+          "objectives": [
+            {
+              "text": "Joan must survive.",
+              "identity": "Protect unit",
+              "priority": "Primary",
+              "successEffects": ["None"],
+              "failureEffects": ["Defeat"],
+              "time": "Untimed",
+              "conditions": ["None"],
+              "possible": true,
+              "notes": ""
+            },
+            {
+              "text": "The Cathedral in Orléans must remain standing.",
+              "identity": "Protect building",
+              "priority": "Primary",
+              "successEffects": ["None"],
+              "failureEffects": ["Defeat"],
+              "time": "Untimed",
+              "conditions": ["None"],
+              "possible": true,
+              "notes": ""
+            },
+            {
+              "text": "Escort Joan to Blois so that she may command the French army.",
+              "identity": "Move unit",
+              "priority": "Primary",
+              "successEffects": ["Unlock objective"],
+              "failureEffects": ["None"],
+              "time": "",
+              "conditions": [],
+              "possible": "",
+              "notes": ""
+            },
+            {
+              "text": "Bring Joan to the Orléans Town Center.",
+              "identity": "Move unit",
+              "priority": "Primary",
+              "successEffects": ["Unlock objective"],
+              "failureEffects": ["None"],
+              "time": "Untimed",
+              "conditions": ["Prerequisites"],
+              "possible": true,
+              "notes": ""
+            },
+            {
+              "text": "Deliver 6 Trade Carts of supplies to the Orléans Town Center.",
+              "identity": "Move unit",
+              "priority": "Primary",
+              "successEffects": ["Unlock objective"],
+              "failureEffects": ["Defeat"],
+              "time": "Untimed",
+              "conditions": ["Prerequisites"],
+              "possible": true,
+              "notes": ""
+            },
+            {
+              "text": "Convince the British/English to withdraw by destroying 1 of their Castles.",
+              "identity": "Destroy building",
+              "priority": "Primary",
+              "successEffects": ["Victory"],
+              "failureEffects": ["None"],
+              "time": "Untimed",
+              "conditions": ["Prerequisites"],
+              "possible": true,
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

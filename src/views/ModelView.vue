@@ -3,45 +3,47 @@
 <template>
   <main>
     <h1>Objectives Model</h1>
+
     <p>
       Welcome! This is a model that breaks down all of the aspects that make up a player objective.
       I developed this model with the Real-Time Strategy (RTS) genre in mind, but by no means is it
       limited to only that.
     </p>
     <h2>The Model</h2>
-    <ol>
-      <li>Identity</li>
-      <li>Priority</li>
-      <ul>
-        <li>Primary</li>
-        <li>Secondary</li>
-      </ul>
-      <li>Effects</li>
-      <ul>
-        <li>None</li>
-        <li>Victory</li>
-        <li>Defeat</li>
-        <li>Add objective</li>
-        <li>Remove objective</li>
-      </ul>
-      <li>Time limit</li>
-      <ul>
-        <li>Untimed</li>
-        <li>Statically timed</li>
-        <li>Dynamically timed</li>
-      </ul>
-      <li>Conditions</li>
-      <ul>
-        <li>None</li>
-        <li>Prerequisites</li>
-        <li>Exclusive</li>
-      </ul>
-      <li>Possibility</li>
-      <ul>
-        <li>Possible</li>
-        <li>Impossible</li>
-      </ul>
-    </ol>
+    <section>
+      <div class="attr text">
+        <h2 class="attr-title">Text</h2>
+        <p>The actual text the game displays to the player</p>
+      </div>
+      <div class="attr identity">
+        <h2 class="attr-title">Identity</h2>
+        <p>What kind of game action the player needs to take</p>
+      </div>
+      <div class="attr priority">
+        <h2 class="attr-title">Priority</h2>
+        <p>Whether the objective is required for victory, directly or indirectly</p>
+      </div>
+      <div class="attr success-effects">
+        <h2 class="attr-title">Success Effects</h2>
+        <p>Game effects triggered upon completing an objective</p>
+      </div>
+      <div class="attr failure-effects">
+        <h2 class="attr-title">Failure Effects</h2>
+        <p>Game effects triggered upon failing an objective</p>
+      </div>
+      <div class="attr time">
+        <h2 class="attr-title">Time</h2>
+        <p>What kind of time constrain the objective is under, if any</p>
+      </div>
+      <div class="attr conditions">
+        <h2 class="attr-title">Conditions</h2>
+        <p>Extra logic associated with the objective</p>
+      </div>
+      <div class="attr possible">
+        <h2 class="attr-title">Possible</h2>
+        <p>Whether the objective is actually possible to complete</p>
+      </div>
+    </section>
     <h2>Breaking it down</h2>
     <p>
       To start, I should explain what I mean by objective. A game objective is an action the player
@@ -49,7 +51,11 @@
       that level of communication - not how they are implemented in the game programming.
     </p>
     <p>
-      First we have the objective's identity. This is the nature of the objective itself - for
+      First is the actual objective text - how it is displayed in-game to the player. This will
+      usually be displayed in some menu and/or UI element, perhaps along with a voiceline.
+    </p>
+    <p>
+      Second, we have the objective's identity. This is the nature of the objective itself - for
       example, move a unit, destroy a building, or research a technology. There are a great many of
       these, and a game's systems will determine what kinds of objectives are even possible in it,
       so all possible identities are not currently listed here.
@@ -127,9 +133,30 @@
   </main>
 </template>
 
-<style>
+<style scoped>
 p {
   line-height: 20px; /* within paragraph */
   margin-bottom: 10px; /* between paragraphs */
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.attr {
+  border: 2px solid black;
+  /*flex: 1;*/
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  min-height: 150px;
+  text-align: center;
+}
+
+.attr-title {
+  text-align: center;
 }
 </style>

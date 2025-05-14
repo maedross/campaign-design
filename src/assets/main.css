@@ -20,3 +20,47 @@ a,
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
+
+td {
+  color: var(--vt-c-text-dark-2);
+}
+
+.text {
+  background-color: #8a3ffc;
+}
+
+.identity {
+  background-color: #33b1ff;
+}
+
+.priority {
+  background-color: #007d79;
+}
+
+.success-effects {
+  background-color: #ff7eb6;
+}
+
+.failure-effects {
+  background-color: #fa4d56;
+}
+
+.time {
+  background-color: #fff1f1;
+  color: var(--vt-c-text-light-2);
+}
+
+.conditions {
+  background-color: #6fdc8c;
+  color: var(--vt-c-text-light-2);
+}
+
+.possible {
+  background-color: #4589ff;
+  color: var(--vt-c-text-light-2);
+}
+
+.notes {
+  background-color: #d12771;
+  color: var(--vt-c-text-light-2);
+}

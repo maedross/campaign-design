@@ -18,58 +18,71 @@
                 </button>
                 <li>
                   <div class="row-container">
-                  {{ scenario.name }}
-                  <div v-if="isScenarioExpanded(index + '-' + sInd)">
-                    <table v-for="(objective, oInd) in scenario.objectives" :key="oInd">
-                      <tbody>
-                        <tr>
-                          <td>Text</td>
-                          <td>{{ objective.text }}</td>
-                        </tr>
-                        <tr>
-                          <td>Identity</td>
-                          <td>{{ objective.identity }}</td>
-                        </tr>
-                        <tr>
-                          <td>Effects</td>
-                          <td>
-                            <ul>
-                              <li v-for="(effect, eInd) in objective.effects" :key="eInd">
-                                {{ effect }}
-                              </li>
-                            </ul>
-                          </td>
-                        </tr>
-                        <tr></tr>
-                        <tr>
-                          <td>Time</td>
-                          <td>{{ objective.time }}</td>
-                        </tr>
-                        <tr>
-                          <td>Conditions</td>
-                          <td>
-                            <ul>
-                              <li
-                                v-for="(condition, condInd) in objective.conditions"
-                                :key="condInd"
-                              >
-                                {{ condition }}
-                              </li>
-                            </ul>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Possible</td>
-                          <td v-if="objective.possible == true">Yes</td>
-                          <td v-else>No</td>
-                        </tr>
-                        <tr v-if="objective.notes">
-                          <td>Additional Notes</td>
-                          <td>{{ objective.notes }}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                    {{ scenario.name }}
+                    <div v-if="isScenarioExpanded(index + '-' + sInd)">
+                      <table v-for="(objective, oInd) in scenario.objectives" :key="oInd">
+                        <tbody>
+                          <tr class="text">
+                            <td>Text</td>
+                            <td>{{ objective.text }}</td>
+                          </tr>
+                          <tr class="identity">
+                            <td>Identity</td>
+                            <td>{{ objective.identity }}</td>
+                          </tr>
+                          <tr class="priority">
+                            <td>Priority</td>
+                            <td>{{ objective.priority }}</td>
+                          </tr>
+                          <tr class="success-effects">
+                            <td>Success Effects</td>
+                            <td>
+                              <ul>
+                                <li v-for="(sEffect, sEInd) in objective.successEffects" :key="sEInd">
+                                  {{ sEffect }}
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="failure-effects">
+                            <td>Failure Effects</td>
+                            <td>
+                              <ul>
+                                <li v-for="(fEffect, fEInd) in objective.failureEffects" :key="fEInd">
+                                  {{ fEffect }}
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="time">
+                            <td>Time</td>
+                            <td>{{ objective.time }}</td>
+                          </tr>
+                          <tr class="conditions">
+                            <td>Conditions</td>
+                            <td>
+                              <ul>
+                                <li
+                                  v-for="(condition, condInd) in objective.conditions"
+                                  :key="condInd"
+                                >
+                                  {{ condition }}
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="possible">
+                            <td>Possible</td>
+                            <td v-if="objective.possible == true">Yes</td>
+                            <td v-else>No</td>
+                          </tr>
+                          <tr v-if="objective.notes" class="notes">
+                            <td>Additional Notes</td>
+                            <td>{{ objective.notes }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </li>
               </div>
@@ -96,7 +109,8 @@ interface GameData {
         text: string
         identity: string
         priority: string
-        effects: string[]
+        successEffects: string[]
+        failureEffects: string[]
         time: string
         conditions: string[]
         possible: boolean
@@ -155,46 +169,6 @@ onMounted(async () => {
 table {
   border-collapse: collapse;
   width: 100%;
-}
-
-table tr:nth-child(1) {
-  background-color: #ffcccc;
-}
-
-table tr:nth-child(2) {
-  background-color: #ccffcc;
-}
-
-table tr:nth-child(3) {
-  background-color: #cce5ff;
-}
-
-table tr:nth-child(4) {
-  background-color: #ffffcc;
-}
-
-table tr:nth-child(5) {
-  background-color: #e6ccff;
-}
-
-table tr:nth-child(6) {
-  background-color: #ffdab9;
-}
-
-table tr:nth-child(7) {
-  background-color: #ccffff;
-}
-
-table tr:nth-child(8) {
-  background-color: #f2f2f2;
-}
-
-tr td:nth-child(1) {
-  width: 20%;
-}
-
-tr td:nth-child(2) {
-  width: 80%;
 }
 
 td {
