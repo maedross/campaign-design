@@ -17,7 +17,7 @@
                   {{ isScenarioExpanded(index + '-' + sInd) ? '-' : '+' }}
                 </button>
                 <li>
-                  <div class="row-container">
+                  <div >
                     {{ scenario.name }}
                     <div v-if="isScenarioExpanded(index + '-' + sInd)">
                       <table v-for="(objective, oInd) in scenario.objectives" :key="oInd">
@@ -168,12 +168,19 @@ onMounted(async () => {
 <style>
 table {
   border-collapse: collapse;
-  width: 100%;
+  table-layout: fixed;
+  width: 34em;
+  margin: 16px;
 }
 
 td {
   border: 1px solid black;
 }
+
+td:nth-child(1) {
+  width: 15%;
+}
+
 .row-container {
   display: flex;
   align-items: flex-start;
